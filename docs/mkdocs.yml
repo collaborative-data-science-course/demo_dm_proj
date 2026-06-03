@@ -1,0 +1,23 @@
+site_name: Work as Team on ML Projects
+theme: readthedocs
+
+nav:
+  - Home: index.md
+  - Foundations:
+    - 1.0_VSCode_and_terminal_basics: 1_foundations/1.0_vscode_and_terminal_basics.md
+    - 1.1_getting_started: 1_foundations/1.1_getting_started.md
+    - 1.2_what_is_git_github_&_how_to_setup: 1_foundations/1.2_what_is_git_github_&_how_to_setup.md
+    - 1.3_what_is_cookie_cutter: 1_foundations/1.3_what_is_cookie_cutter.md
+  - Collaboration using GitHub:
+    - 2.1_collaboration_in_github_and_project_setup: 2_collaborative_work/2.1_collaboration_in_github_and_project_setup.md
+    - 2.2_git_branches_&_team_collaboration: 2_collaborative_work/2.2_git_branches_&_team_collaboration.md
+    - 2.3_git_pull_requests: 2_collaborative_work/2.3_git_pull_requests.md
+    - 2.4_reverting_changes_&_squash/merge: 2_collaborative_work/2.4_reverting_changes_&_understanding_squash_or_rebase.md
+    - 2.5_git_merge_conflict: 2_collaborative_work/2.5_git_merge_conflict.md
+    - 2.6_working_with_jupyter_notebook: 2_collaborative_work/2.6_working_with_jupyter_notebooks.md
+  - More:
+    - 3.1_what_is_dvc_and_setup: 3_more/3.1_what_is_dvc_and_setup.md
+    - 3.2_what_is_makefile: 3_more/3.2_what_is_makefile_and_commands.md
+    - 3.3_what_is_mkdocs_and_docs_setup: 3_more/3.3_what_is_mkdocs_and_docs_setup.md
+    - 3.4_gitignore_requirements_env: 3_more/3.4_gitignore_requirements_env.md
+
