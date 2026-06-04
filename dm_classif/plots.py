@@ -33,7 +33,8 @@ def main(
 
     # 2. Gender-wise distribution for diabetes and non-diabetes
     gender_dist = df.groupby(['Sex', 'Diabetes_binary']).size().unstack(fill_value=0)
-    gender_percent = gender_dist.div(gender_dist.sum(axis=1), axis=0)
+    # convert to percentage (0-100) instead of fraction (0-1)
+    gender_percent = gender_dist.div(gender_dist.sum(axis=1), axis=0) * 100
     labels = ['Female', 'Male']
     no_diabetes = gender_percent[0].values  
     yes_diabetes = gender_percent[1].values  
@@ -41,13 +42,17 @@ def main(
 
     ax.bar(labels, no_diabetes, label='No Diabetes', color='skyblue')
     ax.bar(labels, yes_diabetes, bottom=no_diabetes, label='Diabetes', color='salmon')
-    ax.set_ylabel('Percentage')
+    ax.set_ylabel('Percentage (%)')
     ax.set_title('Diabetes Status by Gender (Percentage)')
     ax.legend(title='Diabetes Status')
 
     for i in range(len(labels)):
-        ax.text(i, no_diabetes[i] / 2, f'{no_diabetes[i]:.3f}%', ha='center', va='center', color='black')
-        ax.text(i, no_diabetes[i] + yes_diabetes[i] / 2, f'{yes_diabetes[i]:.3f}%', ha='center', va='center', color='black')
+        # show one decimal place for clarity (e.g. 52.3%)
+        ax.text(i, no_diabetes[i] / 2, f'{no_diabetes[i]:.1f}%', ha='center', va='center', color='black')
+        ax.text(i, no_diabetes[i] + yes_diabetes[i] / 2, f'{yes_diabetes[i]:.1f}%', ha='center', va='center', color='black')
+
+    # ensure y axis spans 0-100 for percentage plots
+    ax.set_ylim(0, 100)
 
     plt.tight_layout()
     plt.savefig(FIGURES_DIR / "2_gender_distribution.png")
